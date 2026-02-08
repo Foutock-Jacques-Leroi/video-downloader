@@ -10,9 +10,10 @@ import os
 def download_video(link):
     # On définit des options pour récupérer le nom du fichier proprement
     ydl_opts = {
-        'format': 'best', # 'best' télécharge le meilleur combiné audio/vidéo déjà prêt
-        'outtmpl': '%(title)s.%(ext)s',
-    }
+    'format': 'best',
+    'outtmpl': '/tmp/%(title)s.%(ext)s', # Utilise le dossier /tmp/ (standard sur Linux)
+    'noplaylist': True,
+}
     
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         # 1. On récupère les infos sans télécharger pour avoir le nom du fichier
