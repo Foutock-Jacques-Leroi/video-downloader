@@ -7,8 +7,9 @@ def download_video(link):
     # On définit des options pour récupérer le nom du fichier proprement
     ydl_opts = {
     'format': 'best',
-    'outtmpl': '/tmp/%(title)s.%(ext)s', # Utilise le dossier /tmp/ (standard sur Linux)
-    'noplaylist': True,
+    'outtmpl': '/tmp/%(title)s.%(ext)s',
+    'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+    'referer': 'https://www.google.com/',
 }
     
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
