@@ -6,14 +6,9 @@ import os
 def download_video(link):
     # On définit des options pour récupérer le nom du fichier proprement
     ydl_opts = {
-    'format': 'mp4/best', # Force le MP4 combiné direct
-    'nocheckcertificate': True,
-    'ignoreerrors': False,
-    'logtostderr': False,
-    'quiet': True,
-    'no_warnings': True,
-    'default_search': 'auto',
-    'source_address': '0.0.0.0' # Force l'IPv4, souvent moins surveillé que l'IPv6
+    'format': 'best',
+    'cookiefile': 'cookies.txt', # yt-dlp lira vos accès ici
+    'outtmpl': '/tmp/%(title)s.%(ext)s',
 }
     
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
